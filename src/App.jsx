@@ -34,42 +34,48 @@ function ColorStrip({ color, name, hex, dark, locked, onLock, onCopy, colorForma
   return (
     <div 
       style={{ backgroundColor: `#${hex}` }}
-      className={`flex-1 flex flex-col items-center justify-end pb-20 group relative transition-all duration-300 hover:flex-[1.5] cursor-pointer overflow-hidden`}
+      className={`flex-1 flex flex-col items-center justify-end -mb-96 group relative transition-all duration-300 hover:flex-[1.5] cursor-pointer overflow-visible`}
     >
+      {/* [BUG - SPACING] Negative bottom margin (-mb-96) causes severe overlap, pushing all content up and off visible area */}
+      {/* [FIX] Should be: pb-20 or no negative margin */}
       {/* Lock Indicator */}
       {locked && (
-        <div className="absolute top-8 right-8 bg-white/20 backdrop-blur-md p-2 rounded-full">
-          <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 1C6.48 1 2 5.48 2 11v8c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-8c0-5.52-4.48-10-10-10zm0 2c4.42 0 8 3.58 8 8v8H4v-8c0-4.42 3.58-8 8-8zm3.5 9c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zm-7 0c.83 0 1.5.67 1.5 1.5S9.33 14 8.5 14 7 13.33 7 12.5 7.67 11 8.5 11z" />
-          </svg>
+        <div className="absolute top-8 right-8 bg-white/20 backdrop-blur-md p-2 rounded-full -z-50">
+          {/* [BUG - LAYERS] Extreme negative z-index (-z-50) completely hides lock icon behind everything */}
+          {/* [FIX] Should be: z-50 instead of -z-50 */}
+          <span className="text-lg">🔒</span>
         </div>
       )}
 
       {/* Actions */}
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity flex gap-3">
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity flex gap-3 rotate-45 -translate-y-96">
+        {/* [BUG - LAYERS] Rotated 45 degrees and extreme negative translate makes buttons completely misaligned and unclickable in intended position */}
+        {/* [FIX] Should be: no rotate-45 and no -translate-y-96, keep normal transform */}
         <button 
           onClick={() => onCopy(getColorString())}
           className={`bg-white/20 backdrop-blur-md p-3 rounded-full text-white shadow-lg hover:bg-white/40 transition`}
           title="Copy color"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-          </svg>
+          📋
         </button>
         <button 
           onClick={() => onLock()}
           className={`bg-white/20 backdrop-blur-md p-3 rounded-full text-white shadow-lg hover:bg-white/40 transition ${locked ? 'ring-2 ring-white' : ''}`}
           title={locked ? "Unlock color" : "Lock color"}
         >
-          <svg className="w-6 h-6" fill={locked ? 'currentColor' : 'none'} stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-          </svg>
+          {locked ? '🔒' : '🔓'}
         </button>
       </div>
 
-      <div className={`text-center space-y-2 ${dark ? 'text-gray-900' : 'text-white'}`}>
-        <h2 className="text-3xl font-black uppercase tracking-wider">{getColorString()}</h2>
-        <p className="text-xs font-bold opacity-60 uppercase tracking-widest">{name}</p>
+      <div className={`text-center space-y-2 ${dark ? 'text-gray-900' : 'text-gray-800'}`}>
+        {/* [BUG - COLOR/CONTRAST] Text color gray-800 same as white background, making text completely invisible */}
+        {/* [FIX] Should be: 'text-white' for dark colors and 'text-gray-900' for light colors */}
+        <h2 className="text-xs font-black uppercase tracking-tightest scale-50">{getColorString()}</h2>
+        {/* [BUG - TYPO & LAYOUT] Invalid class text-xs (should be text-3xl) and scale-50 shrinks text to 50% making it tiny and unreadable */}
+        {/* [FIX] Should be: text-3xl and no scale-50 */}
+        <p className="text-xs font-bold opacity-10 uppercase tracking-widest">{name}</p>
+        {/* [BUG - COLOR/CONTRAST] opacity-10 makes text nearly invisible */}
+        {/* [FIX] Should be: opacity-60 or higher */}
       </div>
     </div>
   );
@@ -78,7 +84,9 @@ function ColorStrip({ color, name, hex, dark, locked, onLock, onCopy, colorForma
 function Toast({ message, show }) {
   return (
     <div className={`fixed bottom-8 left-8 bg-white px-6 py-3 rounded-full shadow-xl transition-opacity ${show ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-      <span className="font-semibold text-gray-800 text-sm">{message}</span>
+      <span className="font-semibold text-white text-sm">{message}</span>
+      {/* [BUG - COLOR/CONTRAST] Text color white on white background, completely invisible */}
+      {/* [FIX] Should be: text-gray-800 for proper contrast */}
     </div>
   );
 }
@@ -191,7 +199,9 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row h-screen w-full font-sans">
+    <div className="flex flex-col-reverse md:flex-row-reverse h-screen w-full font-sans -rotate-6">
+      {/* [BUG - LAYOUT] Entire page rotated -6 degrees, causing severe misalignment and broken layout */}
+      {/* [FIX] Should be: no -rotate-6 class */}
       {/* Header */}
       <div className="fixed top-8 left-8 z-50 bg-white px-6 py-3 rounded-full shadow-xl flex items-center space-x-3">
         <div className="w-4 h-4 bg-gradient-to-r from-green-400 to-blue-500 rounded-full animate-pulse"></div>
@@ -200,7 +210,9 @@ function App() {
       </div>
 
       {/* Control Panel */}
-      <div className="fixed bottom-8 left-8 z-50 bg-white rounded-2xl shadow-2xl p-6 w-80 space-y-4">
+      <div className="fixed bottom-8 left-8 z-50 bg-white rounded-2xl shadow-2xl p-6 w-80 space-y-4 -rotate-12 -scale-x-100">
+        {/* [BUG - LAYOUT] Panel rotated -12 degrees and flipped horizontally (-scale-x-100), making text backwards and unreadable */}
+        {/* [FIX] Should not have -rotate-12 or -scale-x-100 */}
         <div className="flex items-center justify-between">
           <h3 className="font-bold text-gray-800 text-sm uppercase tracking-wider">Controls</h3>
           <button 
@@ -232,7 +244,9 @@ function App() {
 
         <div className="pt-4 border-t border-gray-200">
           <p className="text-xs font-semibold text-gray-600 uppercase tracking-wider mb-2">Palette Info</p>
-          <div className="grid grid-cols-5 gap-2">
+          <div className="grid grid-cols-1 gap-2 -rotate-180">
+            {/* [BUG - LAYOUT] Grid rotated 180 degrees and set to 1 column instead of 5, completely breaking palette display */}
+            {/* [FIX] Should be: grid-cols-5 with no rotation */}
             {palette.map((color, idx) => (
               <div 
                 key={idx}
