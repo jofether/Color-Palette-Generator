@@ -1,0 +1,155 @@
+{
+  "repository": "Color Palette Generator",
+  "bugs": [
+    {
+      "bug_category": "Spacing",
+      "bug_type": "margin-bottom",
+      "file_modified": "src/App.jsx",
+      "line_number": 37,
+      "clean_code": "className={`flex-1 flex flex-col items-center justify-end pb-20 group relative transition-all duration-300 hover:flex-[1.5] cursor-pointer overflow-hidden`}",
+      "buggy_code": "className={`flex-1 flex flex-col items-center justify-end -mb-96 group relative transition-all duration-300 hover:flex-[1.5] cursor-pointer overflow-visible`}",
+      "css_selector": ".flex-1",
+      "bounding_box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "bug_category": "Layout",
+      "bug_type": "overflow",
+      "file_modified": "src/App.jsx",
+      "line_number": 37,
+      "clean_code": "className={`flex-1 flex flex-col items-center justify-end pb-20 group relative transition-all duration-300 hover:flex-[1.5] cursor-pointer overflow-hidden`}",
+      "buggy_code": "className={`flex-1 flex flex-col items-center justify-end -mb-96 group relative transition-all duration-300 hover:flex-[1.5] cursor-pointer overflow-visible`}",
+      "css_selector": ".color-strip",
+      "bounding_box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "bug_category": "Layers",
+      "bug_type": "z-index",
+      "file_modified": "src/App.jsx",
+      "line_number": 41,
+      "clean_code": "<div className=\"absolute top-8 right-8 bg-white/20 backdrop-blur-md p-2 rounded-full\">",
+      "buggy_code": "<div className=\"absolute top-8 right-8 bg-white/20 backdrop-blur-md p-2 rounded-full -z-50\">",
+      "css_selector": ".absolute",
+      "bounding_box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "bug_category": "Layout",
+      "bug_type": "transform",
+      "file_modified": "src/App.jsx",
+      "line_number": 49,
+      "clean_code": "<div className=\"absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity flex gap-3\">",
+      "buggy_code": "<div className=\"absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity flex gap-3 rotate-45 -translate-y-96\">",
+      "css_selector": ".group-hover\\:opacity-100",
+      "bounding_box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "bug_category": "Color",
+      "bug_type": "text-color",
+      "file_modified": "src/App.jsx",
+      "line_number": 62,
+      "clean_code": "<div className={`text-center space-y-2 ${dark ? 'text-gray-900' : 'text-white'}`}>",
+      "buggy_code": "<div className={`text-center space-y-2 ${dark ? 'text-gray-900' : 'text-gray-800'}`}>",
+      "css_selector": ".text-center",
+      "bounding_box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "bug_category": "Spacing",
+      "bug_type": "font-size",
+      "file_modified": "src/App.jsx",
+      "line_number": 63,
+      "clean_code": "<h2 className=\"text-3xl font-black uppercase tracking-wider\">{getColorString()}</h2>",
+      "buggy_code": "<h2 className=\"text-xs font-black uppercase tracking-tightest scale-50\">{getColorString()}</h2>",
+      "css_selector": "h2",
+      "bounding_box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "bug_category": "Color",
+      "bug_type": "opacity",
+      "file_modified": "src/App.jsx",
+      "line_number": 64,
+      "clean_code": "<p className=\"text-xs font-bold opacity-60 uppercase tracking-widest\">{name}</p>",
+      "buggy_code": "<p className=\"text-xs font-bold opacity-10 uppercase tracking-widest\">{name}</p>",
+      "css_selector": "p",
+      "bounding_box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "bug_category": "Color",
+      "bug_type": "text-color",
+      "file_modified": "src/App.jsx",
+      "line_number": 77,
+      "clean_code": "<span className=\"font-semibold text-gray-800 text-sm\">{message}</span>",
+      "buggy_code": "<span className=\"font-semibold text-white text-sm\">{message}</span>",
+      "css_selector": ".font-semibold",
+      "bounding_box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "bug_category": "Layers",
+      "bug_type": "rotate",
+      "file_modified": "src/App.jsx",
+      "line_number": 194,
+      "clean_code": "<div className=\"flex flex-col md:flex-row h-screen w-full font-sans\">",
+      "buggy_code": "<div className=\"flex flex-col-reverse md:flex-row-reverse h-screen w-full font-sans -rotate-6\">",
+      "css_selector": ".flex",
+      "bounding_box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "bug_category": "Layout",
+      "bug_type": "grid-cols",
+      "file_modified": "src/App.jsx",
+      "line_number": 230,
+      "clean_code": "<div className=\"grid grid-cols-5 gap-2\">",
+      "buggy_code": "<div className=\"grid grid-cols-1 gap-2 -rotate-180\">",
+      "css_selector": ".grid",
+      "bounding_box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    }
+  ]
+}
