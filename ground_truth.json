@@ -2,6 +2,7 @@
   "repository": "Color Palette Generator",
   "bugs": [
     {
+      "comment": "Bug #1 - negative margin",
       "bug_category": "Spacing",
       "bug_type": "margin-bottom",
       "file_modified": "src/App.jsx",
@@ -10,13 +11,14 @@
       "buggy_code": "className={`flex-1 flex flex-col items-center justify-end -mb-96 group relative transition-all duration-300 hover:flex-[1.5] cursor-pointer overflow-visible`}",
       "css_selector": ".flex-1",
       "bounding_box": {
-        "x": 0,
+        "x": 256,
         "y": 0,
-        "width": 0,
-        "height": 0
+        "width": 256,
+        "height": 720
       }
     },
     {
+      "comment": "Bug #2 - overflow visibility",
       "bug_category": "Layout",
       "bug_type": "overflow",
       "file_modified": "src/App.jsx",
@@ -25,13 +27,14 @@
       "buggy_code": "className={`flex-1 flex flex-col items-center justify-end -mb-96 group relative transition-all duration-300 hover:flex-[1.5] cursor-pointer overflow-visible`}",
       "css_selector": ".color-strip",
       "bounding_box": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
+        "x": 1076,
+        "y": 88,
+        "width": 111,
+        "height": 103
       }
     },
     {
+      "comment": "Bug #3 - negative z-index",
       "bug_category": "Layers",
       "bug_type": "z-index",
       "file_modified": "src/App.jsx",
@@ -40,13 +43,14 @@
       "buggy_code": "<div className=\"absolute top-8 right-8 bg-white/20 backdrop-blur-md p-2 rounded-full -z-50\">",
       "css_selector": ".absolute",
       "bounding_box": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
+        "x": 1076,
+        "y": 88,
+        "width": 66,
+        "height": 66
       }
     },
     {
+      "comment": "Bug #4 - rotate and translate",
       "bug_category": "Layout",
       "bug_type": "transform",
       "file_modified": "src/App.jsx",
@@ -55,13 +59,14 @@
       "buggy_code": "<div className=\"absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity flex gap-3 rotate-45 -translate-y-96\">",
       "css_selector": ".group-hover\\:opacity-100",
       "bounding_box": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
+        "x": 1076,
+        "y": 88,
+        "width": 111,
+        "height": 103
       }
     },
     {
+      "comment": "Bug #5 - text color contrast",
       "bug_category": "Color",
       "bug_type": "text-color",
       "file_modified": "src/App.jsx",
@@ -72,11 +77,12 @@
       "bounding_box": {
         "x": 0,
         "y": 0,
-        "width": 0,
-        "height": 0
+        "width": 492,
+        "height": 606
       }
     },
     {
+      "comment": "Bug #6 - font size and scale",
       "bug_category": "Spacing",
       "bug_type": "font-size",
       "file_modified": "src/App.jsx",
@@ -85,13 +91,14 @@
       "buggy_code": "<h2 className=\"text-xs font-black uppercase tracking-tightest scale-50\">{getColorString()}</h2>",
       "css_selector": "h2",
       "bounding_box": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
+        "x": 1217,
+        "y": 680,
+        "width": 37,
+        "height": 40
       }
     },
     {
+      "comment": "Bug #7 - opacity visibility",
       "bug_category": "Color",
       "bug_type": "opacity",
       "file_modified": "src/App.jsx",
@@ -100,13 +107,14 @@
       "buggy_code": "<p className=\"text-xs font-bold opacity-10 uppercase tracking-widest\">{name}</p>",
       "css_selector": "p",
       "bounding_box": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
+        "x": 1200,
+        "y": 690,
+        "width": 75,
+        "height": 30
       }
     },
     {
+      "comment": "Bug #8 - text color visibility",
       "bug_category": "Color",
       "bug_type": "text-color",
       "file_modified": "src/App.jsx",
@@ -115,13 +123,14 @@
       "buggy_code": "<span className=\"font-semibold text-white text-sm\">{message}</span>",
       "css_selector": ".font-semibold",
       "bounding_box": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
+        "x": 540,
+        "y": 20,
+        "width": 200,
+        "height": 50
       }
     },
     {
+      "comment": "Bug #9 - reversed layout and rotation",
       "bug_category": "Layers",
       "bug_type": "rotate",
       "file_modified": "src/App.jsx",
@@ -132,11 +141,12 @@
       "bounding_box": {
         "x": 0,
         "y": 0,
-        "width": 0,
-        "height": 0
+        "width": 1280,
+        "height": 720
       }
     },
     {
+      "comment": "Bug #10 - grid layout and rotation",
       "bug_category": "Layout",
       "bug_type": "grid-cols",
       "file_modified": "src/App.jsx",
@@ -147,8 +157,8 @@
       "bounding_box": {
         "x": 0,
         "y": 0,
-        "width": 0,
-        "height": 0
+        "width": 689,
+        "height": 720
       }
     }
   ]
