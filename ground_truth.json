@@ -10,7 +10,7 @@
       "line_number": 37,
       "neg_code": "className={`flex-1 flex flex-col items-center justify-end pb-20 group relative transition-all duration-300 hover:flex-[1.5] cursor-pointer overflow-hidden`}",
       "pos_code": "className={`flex-1 flex flex-col items-center justify-end -mb-96 group relative transition-all duration-300 hover:flex-[1.5] cursor-pointer overflow-visible`}",
-      "css_selector": "div.flex-1:nth-of-type(2).group.relative",
+      "css_selector": "div.flex-1.group",
       "bounding_box": {
         "x": 256,
         "y": 0,
@@ -27,7 +27,7 @@
       "line_number": 37,
       "neg_code": "className={`flex-1 flex flex-col items-center justify-end pb-20 group relative transition-all duration-300 hover:flex-[1.5] cursor-pointer overflow-hidden`}",
       "pos_code": "className={`flex-1 flex flex-col items-center justify-end -mb-96 group relative transition-all duration-300 hover:flex-[1.5] cursor-pointer overflow-visible`}",
-      "css_selector": "div.flex-1:last-of-type.cursor-pointer",
+      "css_selector": "div.flex-1.cursor-pointer",
       "bounding_box": {
         "x": 1076,
         "y": 88,
@@ -44,7 +44,7 @@
       "line_number": 41,
       "neg_code": "<div className=\"absolute top-8 right-8 bg-white/20 backdrop-blur-md p-2 rounded-full\">",
       "pos_code": "<div className=\"absolute top-8 right-8 bg-white/20 backdrop-blur-md p-2 rounded-full -z-50\">",
-      "css_selector": "div.flex-1:last-of-type .absolute.rounded-full.top-8.right-8",
+      "css_selector": "div.absolute.rounded-full.top-8.right-8",
       "bounding_box": {
         "x": 1024,
         "y": 0,
@@ -61,7 +61,7 @@
       "line_number": 49,
       "neg_code": "<div className=\"absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity flex gap-3\">",
       "pos_code": "<div className=\"absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity flex gap-3 rotate-45 -translate-y-96\">",
-      "css_selector": "div.flex-1:last-of-type .flex.gap-3.absolute",
+      "css_selector": "div.flex.gap-3.absolute",
       "bounding_box": {
         "x": 1024,
         "y": 0,
@@ -78,7 +78,7 @@
       "line_number": 62,
       "neg_code": "<div className={`text-center space-y-2 ${dark ? 'text-gray-900' : 'text-white'}`}>",
       "pos_code": "<div className={`text-center space-y-2 ${dark ? 'text-gray-900' : 'text-gray-800'}`}>",
-      "css_selector": "div.flex-1:first-of-type .text-center.space-y-2",
+      "css_selector": "div.text-center.space-y-2",
       "bounding_box": {
         "x": 0,
         "y": 0,
@@ -95,7 +95,7 @@
       "line_number": 63,
       "neg_code": "<h2 className=\"text-3xl font-black uppercase tracking-wider\">{getColorString()}</h2>",
       "pos_code": "<h2 className=\"text-xs font-black uppercase tracking-tightest scale-50\">{getColorString()}</h2>",
-      "css_selector": "div.flex-1:last-of-type h2.font-black.uppercase",
+      "css_selector": "h2.font-black.uppercase",
       "bounding_box": {
         "x": 1217,
         "y": 680,
@@ -112,7 +112,7 @@
       "line_number": 64,
       "neg_code": "<p className=\"text-xs font-bold opacity-60 uppercase tracking-widest\">{name}</p>",
       "pos_code": "<p className=\"text-xs font-bold opacity-10 uppercase tracking-widest\">{name}</p>",
-      "css_selector": "div.flex-1:last-of-type p.font-bold.text-xs",
+      "css_selector": "p.font-bold.text-xs",
       "bounding_box": {
         "x": 1200,
         "y": 690,
